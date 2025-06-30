@@ -1,5 +1,21 @@
 # administration
 
+## 1.0.26
+
+### Patch Changes
+
+- Updated dependencies [fb7e4de]
+- Updated dependencies [fb7e4de]
+- Updated dependencies [fb7e4de]
+- Updated dependencies [fb7e4de]
+- Updated dependencies [fb7e4de]
+- Updated dependencies [fb7e4de]
+- Updated dependencies [fb7e4de]
+- Updated dependencies [fb7e4de]
+- Updated dependencies [fb7e4de]
+  - @heycart-ag/meteor-admin-sdk@6.2.0
+  - @heycart-ag/meteor-component-library@4.14.0
+
 ## 1.0.25
 
 ### Patch Changes

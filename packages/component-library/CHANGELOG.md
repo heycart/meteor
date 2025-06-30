@@ -1,5 +1,23 @@
 # Changelog
 
+## 4.14.0
+
+### Minor Changes
+
+- fb7e4de: Add mt-entity-select component
+
+### Patch Changes
+
+- fb7e4de: Do not show the timezone when displaying a date in mt-datepicker
+- fb7e4de: Define emits on `mt-datepicker`
+- fb7e4de: Update text colors in datepicker
+- fb7e4de: Add reactivity to `min`/`max` changes in `mt-number-field` to prevent invalid values.
+- fb7e4de: Allow clearing value of `mt-datepicker`
+- fb7e4de: fix: validator errors mt-field-error
+- Updated dependencies [fb7e4de]
+- Updated dependencies [fb7e4de]
+  - @heycart-ag/meteor-admin-sdk@6.2.0
+
 ## 4.13.0
 
 ### Minor Changes

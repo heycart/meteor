@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.2.0
+
+### Minor Changes
+
+- fb7e4de: Added context.can
+  Added `privileges` to `contextAppInformation`
+- fb7e4de: Add `useDataset` and `useAsyncSharedState` composables
+
 ## 6.1.0
 
 ### Minor Changes
