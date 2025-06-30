@@ -1,5 +1,18 @@
 # nuxt-app
 
+## 0.0.41
+
+### Patch Changes
+
+- Updated dependencies [fb7e4de]
+- Updated dependencies [fb7e4de]
+- Updated dependencies [fb7e4de]
+- Updated dependencies [fb7e4de]
+- Updated dependencies [fb7e4de]
+- Updated dependencies [fb7e4de]
+- Updated dependencies [fb7e4de]
+  - @heycart-ag/meteor-component-library@4.14.0
+
 ## 0.0.40
 
 ### Patch Changes
