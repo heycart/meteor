@@ -1,5 +1,12 @@
 # Changelog
 
+## 4.14.1
+
+### Patch Changes
+
+- Updated dependencies [ec10a25]
+  - @heycart-ag/meteor-admin-sdk@6.2.1
+
 ## 4.14.0
 
 ### Minor Changes

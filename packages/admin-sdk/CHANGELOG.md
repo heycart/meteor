@@ -1,5 +1,11 @@
 # Changelog
 
+## 6.2.1
+
+### Patch Changes
+
+- ec10a25: fix: user name
+
 ## 6.2.0
 
 ### Minor Changes
