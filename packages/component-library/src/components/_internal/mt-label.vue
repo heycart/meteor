@@ -50,8 +50,8 @@ const { t } = useI18n({
     en: {
       remove: "Remove",
     },
-    de: {
-      remove: "Entfernen",
+    zh: {
+      remove: "移除",
     },
   },
 });

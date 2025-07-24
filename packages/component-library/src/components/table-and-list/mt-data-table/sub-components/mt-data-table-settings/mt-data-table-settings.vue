@@ -175,26 +175,25 @@ export default defineComponent({
           tooltip: "View settings",
           "aria-toggle-table-settings": "Toggle view settings",
         },
-        de: {
-          title: "Einstellungen",
-          resetAllChanges: "Alle Änderungen zurücksetzen",
+        zh: {
+          title: "设置",
+          resetAllChanges: "重置所有更改",
           columnOrder: {
-            title: "Spalten",
+            title: "列",
             columnGroups: {
-              labelShown: "In Tabelle sichtbar",
-              actionLabelShown: "Alle ausblenden",
-              labelHidden: "In Tabelle ausgeblendet",
-              actionLabelHidden: "Alle einblenden",
-            },
+              labelShown: "在表格中显示",
+              actionLabelShown: "全部隐藏",
+              labelHidden: "在表格中隐藏",
+              actionLabelHidden: "全部显示"
+            }
           },
-          showNumberedColumn: "Zeige nummerierte Spalte an",
-          showStripedRows: "Zeige gestreifte Zeilen an",
-          showOutlines: "Zeige Umrisse an",
-          frameOutlines: "Hebe Umrisse vor",
-          frameOutlinesMetaCopy:
-            "Hervorhebung von Spalten- und Zeilenumrissen bei Mausüberlagerung",
-          tooltip: "Tabelleneinstellungen",
-          "aria-toggle-table-settings": "Tabelleneinstellungen umschalten",
+          showNumberedColumn: "显示编号列",
+          showStripedRows: "显示条纹行",
+          showOutlines: "显示轮廓",
+          frameOutlines: "突出显示轮廓",
+          frameOutlinesMetaCopy: "鼠标悬停时高亮显示行列轮廓",
+          tooltip: "表格设置",
+          "aria-toggle-table-settings": "切换表格设置"
         },
       },
     });

@@ -167,8 +167,8 @@ export default defineComponent({
   setup() {
     const { t } = useI18n({
       messages: {
-        de: {
-          "select-placeholder": "Auswählen...",
+        zh: {
+          "select-placeholder": "选择...",
         },
         en: {
           "select-placeholder": "Select...",

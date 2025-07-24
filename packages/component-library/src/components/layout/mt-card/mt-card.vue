@@ -127,9 +127,9 @@ const { t } = useI18n({
       disableInheritance: "Disable inheritance",
       enableInheritance: "Enable inheritance",
     },
-    de: {
-      disableInheritance: "Vererbung deaktivieren",
-      enableInheritance: "Vererbung aktivieren",
+    zh: {
+      disableInheritance: "禁用继承",
+      enableInheritance: "启用继承"
     },
   },
 });

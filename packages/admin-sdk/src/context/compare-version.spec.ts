@@ -1,11 +1,11 @@
-import getCompareIsShopwareVersion from './compare-version';
+import getCompareIsHeyCartVersion from './compare-version';
 
 type Comparator = '=' | '!=' | '<' | '>' | '<=' | '>=';
 
-describe('getCompareShopwareVersion', () => {
+describe('getCompareHeyCartVersion', () => {
   const mock = (version: string) => () => Promise.resolve(version);
 
-  describe('It works with shopware versions and semver versions', () => {
+  describe('It works with heycart versions and semver versions', () => {
     it.each<[boolean, string, Comparator, string]>([
       [true, '6.6.8.2', '=', '6.6.8.2'],
       [true, '6.6.8.2', '=', '6.8.2'],
@@ -16,10 +16,10 @@ describe('getCompareShopwareVersion', () => {
       [false, '6.6.8.2', '=', '6.9.2'],
       [false, '6.8.2', '=', '6.6.9.2'],
       [false, '6.8.2', '=', '6.9.2'],
-    ])("returns %s for '%s %s %s'", async (exptectedResult, shopwareVersion, comparator, comparedVersion) => {
-      const compareIsShopwareVersion = getCompareIsShopwareVersion(mock(shopwareVersion));
+    ])("returns %s for '%s %s %s'", async (exptectedResult, heycartVersion, comparator, comparedVersion) => {
+      const compareIsHeyCartVersion = getCompareIsHeyCartVersion(mock(heycartVersion));
 
-      expect(await compareIsShopwareVersion(comparator, comparedVersion)).toBe(exptectedResult)
+      expect(await compareIsHeyCartVersion(comparator, comparedVersion)).toBe(exptectedResult)
     });
   });
 
@@ -58,10 +58,10 @@ describe('getCompareShopwareVersion', () => {
       [true, '6.7.0.0-alpha', '=', '6.7.0.0-alpha'],
       [true, '6.7.0.0-alpha', '<', '6.7.0.0-beta'],
       [true, '6.7.0.0-beta', '>', '6.7.0.0-alpha'],
-    ])("returns %s for '%s %s %s'", async (exptectedResult, shopwareVersion, comparator, comparedVersion) => {
-      const compareIsShopwareVersion = getCompareIsShopwareVersion(mock(shopwareVersion));
+    ])("returns %s for '%s %s %s'", async (exptectedResult, heycartVersion, comparator, comparedVersion) => {
+      const compareIsHeyCartVersion = getCompareIsHeyCartVersion(mock(heycartVersion));
 
-      expect(await compareIsShopwareVersion(comparator, comparedVersion)).toBe(exptectedResult)
+      expect(await compareIsHeyCartVersion(comparator, comparedVersion)).toBe(exptectedResult)
     });
   });
 });

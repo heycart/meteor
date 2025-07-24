@@ -67,14 +67,13 @@ export default defineComponent({
             errorTitle: "Error copying to clipboard",
           },
         },
-        de: {
+        zh: {
           tooltip: {
-            wasCopied: "In Zwischenablage kopiert.",
-            canCopy: "In Zwischenablage kopieren.",
-            notificationCopySuccessMessage: "Der Text wurde in die Zwischenablage kopiert.",
-            notificationCopyFailureMessage:
-              "Der Text konnte nicht in die Zwischenablage kopiert werden.",
-            errorTitle: "Fehler beim kopieren in die Zwischenablage",
+            wasCopied: "已复制到剪贴板。",
+            canCopy: "复制到剪贴板。",
+            notificationCopySuccessMessage: "文本已成功复制到剪贴板。",
+            notificationCopyFailureMessage: "无法将文本复制到剪贴板。",
+            errorTitle: "复制到剪贴板时出错",
           },
         },
       },

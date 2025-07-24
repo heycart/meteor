@@ -1027,40 +1027,40 @@ export default defineComponent({
             tooltip: "Reload",
           },
         },
-        de: {
-          itemsPerPage: "Einträge pro Seite",
+        zh: {
+          itemsPerPage: "每页条数",
           filter: {
             numberOfResults:
-              "Keine Einträge gefunden | Ein Eintrag gefunden | {n} Einträge gefunden",
-            addFilter: "Filter hinzufügen",
-            fetchingFilteredResults: "Filterergebnisse werden geladen...",
+              "未找到条目 | 找到 1 条 | 找到 {n} 条",
+            addFilter: "添加筛选器",
+            fetchingFilteredResults: "正在加载筛选结果..."
           },
           columnSettings: {
-            sortAscending: "Aufsteigend sortieren",
-            sortDescending: "Absteigend sortieren",
-            hideColumn: "Spalte ausblenden",
+            sortAscending: "升序排序",
+            sortDescending: "降序排序",
+            hideColumn: "隐藏列"
           },
           addColumnIndicator: {
-            popoverTitle: "Spalteninhalt hinzufügen",
-            tooltipMessage: "Spalte hinzufügen",
+            popoverTitle: "添加列内容",
+            tooltipMessage: "添加列"
           },
           contextButtons: {
-            edit: "Bearbeiten",
-            delete: "Löschen",
+            edit: "编辑",
+            delete: "删除"
           },
           emptyState: {
-            headline: "Füge dein erstes Element hinzu",
-            description: "Aktuell sind noch keine Elemente vorhanden.",
+            headline: "添加数据",
+            description: "当前还没有任何数据。"
           },
           bulkEdit: {
-            itemsSelected: "1 Element ausgewählt | {n} Elemente ausgewählt",
-            edit: "Bearbeiten",
-            delete: "Löschen",
-            more: "...",
+            itemsSelected: "选中 1 条 | 选中 {n} 条",
+            edit: "编辑",
+            delete: "删除",
+            more: "更多..."
           },
           reload: {
-            tooltip: "Neu laden",
-          },
+            tooltip: "重新加载"
+          }
         },
       },
     });
@@ -1999,7 +1999,7 @@ $font-family-default-feature-settings:
   "cv11" on;
 
 $color-card-headline: #1c1c1c;
-$color-shopware-brand-vivacious-500: #0f76de;
+$color-heycart-brand-vivacious-500: #0f76de;
 
 $scrollShadowSize: 16px;
 $scrollShadowColor: rgba(120, 120, 120, 0.1);
@@ -2473,12 +2473,12 @@ $tableCellPadding: $tableCellPaddingTop $tableCellPaddingRight $tableCellPadding
   .mt-data-table__table-head-dropzone-before {
     left: 0;
     box-shadow: inset $dropzone-highlight-width 0px $dropzone-highlight-width
-      $dropzone-highlight-negative-width $color-shopware-brand-900;
+      $dropzone-highlight-negative-width $color-heycart-brand-900;
   }
   .mt-data-table__table-head-dropzone-after {
     right: 0;
     box-shadow: inset $dropzone-highlight-negative-width 0px $dropzone-highlight-width
-      $dropzone-highlight-negative-width $color-shopware-brand-900;
+      $dropzone-highlight-negative-width $color-heycart-brand-900;
   }
 
   /**
@@ -2539,7 +2539,7 @@ $tableCellPadding: $tableCellPaddingTop $tableCellPaddingRight $tableCellPadding
     a {
       position: relative;
       top: 1px;
-      color: $color-shopware-brand-vivacious-500;
+      color: $color-heycart-brand-vivacious-500;
       text-decoration: none;
       font-weight: var(--font-weight-semibold);
       font-size: var(--font-size-xs);
@@ -2718,7 +2718,7 @@ table.is--dragging-inside {
   left: 0;
   width: 100%;
   height: var(--scale-size-8);
-  background-color: $color-shopware-brand-900;
+  background-color: $color-heycart-brand-900;
   border-radius: var(--border-radius-xs) var(--border-radius-xs) 0 0;
   transition: transform 0.2s ease;
   transform-origin: top center;
@@ -2732,7 +2732,7 @@ table.is--dragging-inside {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $color-shopware-brand-900;
+  background-color: $color-heycart-brand-900;
   border-radius: 0 0 var(--border-radius-xs) var(--border-radius-xs);
 
   #meteor-icon-kit__regular-grip-horizontal-s {

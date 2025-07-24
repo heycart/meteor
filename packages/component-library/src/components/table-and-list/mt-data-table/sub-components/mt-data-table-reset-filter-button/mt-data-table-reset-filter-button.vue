@@ -16,8 +16,8 @@ const { t } = useI18n({
     en: {
       label: "Remove filter | Remove filters",
     },
-    de: {
-      label: "Filter entfernen | Filter entfernen",
+    zh: {
+      label: "移除筛选器 | 移除筛选器",
     },
   },
 });

@@ -1,10 +1,10 @@
 import HandleError from './HandleError';
 import { hasOwnProperty } from '../utils';
 import MissingPrivilegesError from '../privileges/missing-privileges-error';
-import type { ShopwareMessageTypes } from '../../message-types';
+import type { HeyCartMessageTypes } from '../../message-types';
 import type { privilegeString } from '../privileges';
 
-export default function createError(type: keyof ShopwareMessageTypes, e: unknown): Error {
+export default function createError(type: keyof HeyCartMessageTypes, e: unknown): Error {
   if (typeof e === 'string') {
     return new HandleError(e);
   }

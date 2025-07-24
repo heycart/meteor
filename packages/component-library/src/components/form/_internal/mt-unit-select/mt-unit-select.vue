@@ -55,20 +55,20 @@ import { onClickOutside } from "@vueuse/core";
 
 const { t } = useI18n({
   messages: {
-    de: {
+    zh: {
       units: {
-        mm: "Millimeter",
-        cm: "Zentimeter",
-        m: "Meter",
-        in: "Zoll",
-        ft: "Fuß",
-        yd: "Yard",
-        g: "Gramm",
-        kg: "Kilogramm",
-        oz: "Unze",
-        lb: "Pfund",
+        mm: "毫米",
+        cm: "厘米",
+        m: "米",
+        in: "英寸",
+        ft: "英尺",
+        yd: "码",
+        g: "克",
+        kg: "千克",
+        oz: "盎司",
+        lb: "磅"
       },
-      "select-unit": "Einheit auswählen",
+      "select-unit": "选择单位"
     },
     en: {
       units: {

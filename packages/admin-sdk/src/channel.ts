@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
-import type { ShopwareMessageTypes } from './message-types';
+import type { HeyCartMessageTypes } from './message-types';
 import { generateUniqueId } from './_internals/utils';
 import type { extension, privilegeString } from './_internals/privileges';
 import MissingPrivilegesError from './_internals/privileges/missing-privileges-error';
@@ -43,7 +43,7 @@ export function setExtensions(extensions: extensions): void {
  */
 
 /**
- * Resembles the options that are available on any ShopwareMessageType.
+ * Resembles the options that are available on any HeyCartMessageType.
  */
 export type BaseMessageOptions = { privileges?: privilegeString[] }
 
@@ -51,13 +51,13 @@ export type BaseMessageOptions = { privileges?: privilegeString[] }
  * This type contains the data of the type without the responseType
  * @internal
  */
-export type MessageDataType<TYPE extends keyof ShopwareMessageTypes> = Omit<ShopwareMessageTypes[TYPE], 'responseType'>;
+export type MessageDataType<TYPE extends keyof HeyCartMessageTypes> = Omit<HeyCartMessageTypes[TYPE], 'responseType'>;
 
 /**
  * This is the structure of the data which will be send with {@link send}
  * @internal
  */
-export type ShopwareMessageSendData<MESSAGE_TYPE extends keyof ShopwareMessageTypes> = {
+export type HeyCartMessageSendData<MESSAGE_TYPE extends keyof HeyCartMessageTypes> = {
   _type: MESSAGE_TYPE,
   _data: MessageDataType<MESSAGE_TYPE> & BaseMessageOptions,
   _callbackId: string,
@@ -67,9 +67,9 @@ export type ShopwareMessageSendData<MESSAGE_TYPE extends keyof ShopwareMessageTy
  * This is the structure of the data which will be send back when the admin gives a response
  * @internal
  */
-export type ShopwareMessageResponseData<MESSAGE_TYPE extends keyof ShopwareMessageTypes> = {
+export type HeyCartMessageResponseData<MESSAGE_TYPE extends keyof HeyCartMessageTypes> = {
   _type: MESSAGE_TYPE,
-  _response: ShopwareMessageTypes[MESSAGE_TYPE]['responseType'] | null,
+  _response: HeyCartMessageTypes[MESSAGE_TYPE]['responseType'] | null,
   _callbackId: string,
 }
 
@@ -104,12 +104,12 @@ const subscriberRegistry: Set<{
  * @param data The matching data for the type
  * @returns A promise with the response data in the given responseType
  */
-export function send<MESSAGE_TYPE extends keyof ShopwareMessageTypes>(
+export function send<MESSAGE_TYPE extends keyof HeyCartMessageTypes>(
   type: MESSAGE_TYPE,
   data: MessageDataType<MESSAGE_TYPE> & BaseMessageOptions,
   _targetWindow?: Window,
   _origin?: string
-): Promise<ShopwareMessageTypes[MESSAGE_TYPE]['responseType'] | null> {
+): Promise<HeyCartMessageTypes[MESSAGE_TYPE]['responseType'] | null> {
   // Generate a unique callback ID used to match the response for this request
   const callbackId = generateUniqueId();
 
@@ -117,14 +117,14 @@ export function send<MESSAGE_TYPE extends keyof ShopwareMessageTypes>(
   const sendData = data ?? {};
 
   // Generate the message with the callbackId
-  const messageData: ShopwareMessageSendData<MESSAGE_TYPE> = {
+  const messageData: HeyCartMessageSendData<MESSAGE_TYPE> = {
     _type: type,
     _data: sendData,
     _callbackId: callbackId,
   };
 
   // Serialize the message data to transform Entity, EntityCollection, Criteria etc. to a JSON serializable format
-  let serializedData = serialize(messageData) as ShopwareMessageSendData<MESSAGE_TYPE>;
+  let serializedData = serialize(messageData) as HeyCartMessageSendData<MESSAGE_TYPE>;
 
   // Validate if send value contains entity data where the app has no privileges for
   if (_origin) {
@@ -152,7 +152,7 @@ export function send<MESSAGE_TYPE extends keyof ShopwareMessageTypes>(
             id: serializedData._data.id,
             data: validationErrors,
           },
-        }) as ShopwareMessageSendData<MESSAGE_TYPE>;
+        }) as HeyCartMessageSendData<MESSAGE_TYPE>;
       }
       // Everything else can overwrite the response
       else {
@@ -160,7 +160,7 @@ export function send<MESSAGE_TYPE extends keyof ShopwareMessageTypes>(
           _type: serializedData._type,
           _callbackId: serializedData._callbackId,
           _data: validationErrors,
-        }) as ShopwareMessageSendData<MESSAGE_TYPE>;
+        }) as HeyCartMessageSendData<MESSAGE_TYPE>;
       }
 
     }
@@ -185,27 +185,27 @@ export function send<MESSAGE_TYPE extends keyof ShopwareMessageTypes>(
         return;
       }
 
-      let shopwareResponseData;
+      let heycartResponseData;
       // Try to parse the json response
       try {
-        shopwareResponseData = JSON.parse(event.data) as unknown;
+        heycartResponseData = JSON.parse(event.data) as unknown;
       } catch {
         // Fail silently when message is not a valid json file
         return;
       }
 
       // Check if messageData is valid
-      if (!isMessageResponseData<MESSAGE_TYPE>(shopwareResponseData)) {
+      if (!isMessageResponseData<MESSAGE_TYPE>(heycartResponseData)) {
         return;
       }
 
       // Only execute if response value exists
-      if (!shopwareResponseData.hasOwnProperty('_response')) {
+      if (!heycartResponseData.hasOwnProperty('_response')) {
         return;
       }
 
       // Deserialize methods etc. so that they are callable in JS
-      const deserializedResponseData = deserialize(shopwareResponseData, event) as ShopwareMessageResponseData<MESSAGE_TYPE>;
+      const deserializedResponseData = deserialize(heycartResponseData, event) as HeyCartMessageResponseData<MESSAGE_TYPE>;
 
       // Remove event so that in only execute once
       window.removeEventListener('message', callbackHandler);
@@ -260,17 +260,17 @@ export function send<MESSAGE_TYPE extends keyof ShopwareMessageTypes>(
   });
 }
 
-export type HandleMethod<MESSAGE_TYPE extends keyof ShopwareMessageTypes> = (
+export type HandleMethod<MESSAGE_TYPE extends keyof HeyCartMessageTypes> = (
   data: MessageDataType<MESSAGE_TYPE> & BaseMessageOptions,
   additionalInformation: { _event_: MessageEvent<string> }
-) => Promise<ShopwareMessageTypes[MESSAGE_TYPE]['responseType']> | ShopwareMessageTypes[MESSAGE_TYPE]['responseType'];
+) => Promise<HeyCartMessageTypes[MESSAGE_TYPE]['responseType']> | HeyCartMessageTypes[MESSAGE_TYPE]['responseType'];
 
 /**
  * @param type Choose a type of action from the {@link send-types}
  * @param method This method should return the response value
  * @returns The return value is a cancel function to stop listening to the events
  */
-export function handle<MESSAGE_TYPE extends keyof ShopwareMessageTypes>
+export function handle<MESSAGE_TYPE extends keyof HeyCartMessageTypes>
 (
   type: MESSAGE_TYPE,
   method: HandleMethod<MESSAGE_TYPE>
@@ -287,23 +287,23 @@ export function handle<MESSAGE_TYPE extends keyof ShopwareMessageTypes>
       return;
     }
 
-    let shopwareMessageData;
+    let heycartMessageData;
 
     // Try to parse the json file
     try {
-      shopwareMessageData = JSON.parse(event.data) as unknown;
+      heycartMessageData = JSON.parse(event.data) as unknown;
     } catch {
       // Fail silently when message is not a valid json file
       return;
     }
 
     // Check if messageData is valid
-    if (!isMessageData<MESSAGE_TYPE>(shopwareMessageData)) {
+    if (!isMessageData<MESSAGE_TYPE>(heycartMessageData)) {
       return;
     }
 
     // Deserialize methods etc. so that they are callable in JS
-    const deserializedMessageData = deserialize(shopwareMessageData, event) as ShopwareMessageSendData<MESSAGE_TYPE>;
+    const deserializedMessageData = deserialize(heycartMessageData, event) as HeyCartMessageSendData<MESSAGE_TYPE>;
 
     // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
     const responseValue = await Promise.resolve((() => {
@@ -329,7 +329,7 @@ export function handle<MESSAGE_TYPE extends keyof ShopwareMessageTypes>
        * in Entity and Entity Collection
        */
       const validationErrors = validate({
-        serializedData: shopwareMessageData,
+        serializedData: heycartMessageData,
         origin: event.origin,
         type: type,
         privilegesToCheck: ['create', 'delete', 'update', 'read'],
@@ -347,15 +347,15 @@ export function handle<MESSAGE_TYPE extends keyof ShopwareMessageTypes>
       );
     })()).catch(e => createError(type, e));
 
-    const responseMessage: ShopwareMessageResponseData<MESSAGE_TYPE> = {
+    const responseMessage: HeyCartMessageResponseData<MESSAGE_TYPE> = {
       _callbackId: deserializedMessageData._callbackId,
       _type: deserializedMessageData._type,
       _response: responseValue ?? null,
     };
 
     // Replace methods etc. so that they are working in JSON format
-    const serializedResponseMessage = ((): ShopwareMessageResponseData<MESSAGE_TYPE> => {
-      let serializedMessage = serialize(responseMessage) as ShopwareMessageResponseData<MESSAGE_TYPE>;
+    const serializedResponseMessage = ((): HeyCartMessageResponseData<MESSAGE_TYPE> => {
+      let serializedMessage = serialize(responseMessage) as HeyCartMessageResponseData<MESSAGE_TYPE>;
       const messageValidationTypes = [
         'datasetSubscribe',
         'datasetGet',
@@ -378,7 +378,7 @@ export function handle<MESSAGE_TYPE extends keyof ShopwareMessageTypes>
       if (validationErrors) {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         serializedMessage._response = validationErrors;
-        serializedMessage = serialize(serializedMessage) as ShopwareMessageResponseData<MESSAGE_TYPE>;
+        serializedMessage = serialize(serializedMessage) as HeyCartMessageResponseData<MESSAGE_TYPE>;
       }
 
       return serializedMessage;
@@ -405,9 +405,9 @@ export function handle<MESSAGE_TYPE extends keyof ShopwareMessageTypes>
   return ():void => window.removeEventListener('message', handleListener);
 }
 
-export function publish<MESSAGE_TYPE extends keyof ShopwareMessageTypes>(
+export function publish<MESSAGE_TYPE extends keyof HeyCartMessageTypes>(
   type: MESSAGE_TYPE,
-  data: ShopwareMessageTypes[MESSAGE_TYPE]['responseType'],
+  data: HeyCartMessageTypes[MESSAGE_TYPE]['responseType'],
   sources: {
     source: Window,
     origin: string,
@@ -427,9 +427,9 @@ export function publish<MESSAGE_TYPE extends keyof ShopwareMessageTypes>(
   });
 }
 
-export function subscribe<MESSAGE_TYPE extends keyof ShopwareMessageTypes>(
+export function subscribe<MESSAGE_TYPE extends keyof HeyCartMessageTypes>(
   type: MESSAGE_TYPE,
-  method: (data: ShopwareMessageTypes[MESSAGE_TYPE]['responseType']) => void | Promise<unknown>
+  method: (data: HeyCartMessageTypes[MESSAGE_TYPE]['responseType']) => void | Promise<unknown>
 ): () => void {
   return handle(type, method);
 }
@@ -441,22 +441,22 @@ export function subscribe<MESSAGE_TYPE extends keyof ShopwareMessageTypes>(
  */
 
 // SENDER WITH OPTIONAL ARGUMENTS (WHEN ALL BASE ARGUMENTS ARE DEFINED)
-export function createSender<MESSAGE_TYPE extends keyof ShopwareMessageTypes>
+export function createSender<MESSAGE_TYPE extends keyof HeyCartMessageTypes>
 (messageType: MESSAGE_TYPE, baseMessageOptions: MessageDataType<MESSAGE_TYPE>)
-:(messageOptions?: MessageDataType<MESSAGE_TYPE> & BaseMessageOptions) => Promise<ShopwareMessageTypes[MESSAGE_TYPE]['responseType']>
+:(messageOptions?: MessageDataType<MESSAGE_TYPE> & BaseMessageOptions) => Promise<HeyCartMessageTypes[MESSAGE_TYPE]['responseType']>
 
 // SENDER WITH PARTIAL ARGUMENTS (ARGUMENTS DEFINED IN BASE OPTIONS ARE OMITTED)
-export function createSender<MESSAGE_TYPE extends keyof ShopwareMessageTypes, BASE_OPTIONS extends Partial<MessageDataType<MESSAGE_TYPE>>>
+export function createSender<MESSAGE_TYPE extends keyof HeyCartMessageTypes, BASE_OPTIONS extends Partial<MessageDataType<MESSAGE_TYPE>>>
 (messageType: MESSAGE_TYPE, baseMessageOptions: BASE_OPTIONS)
-:(messageOptions: Omit<MessageDataType<MESSAGE_TYPE>, keyof BASE_OPTIONS> & BaseMessageOptions) => Promise<ShopwareMessageTypes[MESSAGE_TYPE]['responseType']>
+:(messageOptions: Omit<MessageDataType<MESSAGE_TYPE>, keyof BASE_OPTIONS> & BaseMessageOptions) => Promise<HeyCartMessageTypes[MESSAGE_TYPE]['responseType']>
 
 // SENDER WITH FULL ARGUMENTS (WHEN NO BASE ARGUMENTS ARE DEFINED)
-export function createSender<MESSAGE_TYPE extends keyof ShopwareMessageTypes>
+export function createSender<MESSAGE_TYPE extends keyof HeyCartMessageTypes>
 (messageType: MESSAGE_TYPE)
-:(messageOptions: MessageDataType<MESSAGE_TYPE> & BaseMessageOptions) => Promise<ShopwareMessageTypes[MESSAGE_TYPE]['responseType']>
+:(messageOptions: MessageDataType<MESSAGE_TYPE> & BaseMessageOptions) => Promise<HeyCartMessageTypes[MESSAGE_TYPE]['responseType']>
 
 // MAIN FUNCTION WHICH INCLUDES ALL POSSIBILITES
-export function createSender<MESSAGE_TYPE extends keyof ShopwareMessageTypes>
+export function createSender<MESSAGE_TYPE extends keyof HeyCartMessageTypes>
 (messageType: MESSAGE_TYPE, baseMessageOptions?: MessageDataType<MESSAGE_TYPE>)
 {
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
@@ -469,11 +469,11 @@ export function createSender<MESSAGE_TYPE extends keyof ShopwareMessageTypes>
  * Factory method which creates a handler so that the type don't need to be
  * defined and can be hidden.
  */
-export function createHandler<MESSAGE_TYPE extends keyof ShopwareMessageTypes>(messageType: MESSAGE_TYPE) {
+export function createHandler<MESSAGE_TYPE extends keyof HeyCartMessageTypes>(messageType: MESSAGE_TYPE) {
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   return (method: (data: MessageDataType<MESSAGE_TYPE> & BaseMessageOptions, additionalInformation: {
     _event_: MessageEvent<string>,
-  }) => Promise<ShopwareMessageTypes[MESSAGE_TYPE]['responseType']> | ShopwareMessageTypes[MESSAGE_TYPE]['responseType']) => {
+  }) => Promise<HeyCartMessageTypes[MESSAGE_TYPE]['responseType']> | HeyCartMessageTypes[MESSAGE_TYPE]['responseType']) => {
     return handle(messageType, method);
   };
 }
@@ -482,14 +482,14 @@ export function createHandler<MESSAGE_TYPE extends keyof ShopwareMessageTypes>(m
  * Factory method which creates a handler so that the type doesn't need to be
  * defined and can be hidden.
  */
-export function createSubscriber<MESSAGE_TYPE extends keyof ShopwareMessageTypes>(messageType: MESSAGE_TYPE) {
+export function createSubscriber<MESSAGE_TYPE extends keyof HeyCartMessageTypes>(messageType: MESSAGE_TYPE) {
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  return (method: (data: ShopwareMessageTypes[MESSAGE_TYPE]['responseType']) => void | Promise<unknown>, id?: string) => {
+  return (method: (data: HeyCartMessageTypes[MESSAGE_TYPE]['responseType']) => void | Promise<unknown>, id?: string) => {
     if (!id) {
       return subscribe(messageType, method);
     }
 
-    const wrapper = (data: ShopwareMessageTypes[MESSAGE_TYPE]['responseType']): void => {
+    const wrapper = (data: HeyCartMessageTypes[MESSAGE_TYPE]['responseType']): void => {
       if (data.id === id) {
         void method(data);
       }
@@ -626,19 +626,19 @@ window._swsdk = {
 /**
  * Check if the data is valid message data
  */
-function isMessageData<MESSAGE_TYPE extends keyof ShopwareMessageTypes>(eventData: unknown): eventData is ShopwareMessageSendData<MESSAGE_TYPE> {
-  const shopwareMessageData = eventData as ShopwareMessageSendData<MESSAGE_TYPE>;
+function isMessageData<MESSAGE_TYPE extends keyof HeyCartMessageTypes>(eventData: unknown): eventData is HeyCartMessageSendData<MESSAGE_TYPE> {
+  const heycartMessageData = eventData as HeyCartMessageSendData<MESSAGE_TYPE>;
 
-  return !!shopwareMessageData._type
-         && !!shopwareMessageData._data
-         && !!shopwareMessageData._callbackId;
+  return !!heycartMessageData._type
+         && !!heycartMessageData._data
+         && !!heycartMessageData._callbackId;
 }
 
-// ShopwareMessageTypes[MESSAGE_TYPE]['responseType']
-function isMessageResponseData<MESSAGE_TYPE extends keyof ShopwareMessageTypes>(eventData: unknown): eventData is ShopwareMessageResponseData<MESSAGE_TYPE> {
-  const shopwareMessageData = eventData as ShopwareMessageResponseData<MESSAGE_TYPE>;
+// HeyCartMessageTypes[MESSAGE_TYPE]['responseType']
+function isMessageResponseData<MESSAGE_TYPE extends keyof HeyCartMessageTypes>(eventData: unknown): eventData is HeyCartMessageResponseData<MESSAGE_TYPE> {
+  const heycartMessageData = eventData as HeyCartMessageResponseData<MESSAGE_TYPE>;
 
-  return !!shopwareMessageData._type
-         && !!shopwareMessageData.hasOwnProperty('_response')
-         && !!shopwareMessageData._callbackId;
+  return !!heycartMessageData._type
+         && !!heycartMessageData.hasOwnProperty('_response')
+         && !!heycartMessageData._callbackId;
 }

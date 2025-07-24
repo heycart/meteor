@@ -96,9 +96,9 @@ const { t } = useI18n({
       showPassword: "Show password",
       hidePassword: "Hide password",
     },
-    de: {
-      showPassword: "Passwort anzeigen",
-      hidePassword: "Passwort verbergen",
+    zh: {
+      showPassword: "显示密码",
+      hidePassword: "隐藏密码",
     },
   },
 });

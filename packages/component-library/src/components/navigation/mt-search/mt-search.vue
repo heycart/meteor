@@ -39,8 +39,8 @@ const { t } = useI18n({
     en: {
       placeholder: "Search",
     },
-    de: {
-      placeholder: "Suchen",
+    zh: {
+      placeholder: "搜索",
     },
   },
 });

@@ -68,21 +68,19 @@ const { t } = useI18n({
         "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "This field must not be empty.",
       },
     },
-    de: {
+    zh: {
       "mt-field-error": {
-        FRAMEWORK__MISSING_PRIVILEGE_ERROR: "Fehlende Berechtigungen",
-        FRAMEWORK__DELETE_RESTRICTED: "Löschen fehlgeschlagen",
-        INVALID_MEDIA_URL: "Bitte gib eine gültige URL ein, um eine Datei hochzuladen.",
-        CONTENT__MISSING_RULE_TYPE_EXCEPTION: "Du musst einen Typ für diese Regel auswählen.",
-        CONTENT__INVALID_CATEGORY_TYPE_AS_ENTRY_POINT:
-          "Dieser Typ kann nicht gewählt werden, während die Kategorie als Einstiegspunkt festgelegt ist.",
-        SHOPWARE_INVALID_IP: "Bitte gib eine gültige IP-Adresse ein.",
-        INVALID_URL: "Bitte gib eine gültige URL ein.",
-        INVALID_MAIL: "Bitte gib eine gültige E-Mail-Adresse ein.",
-        FRAMEWORK__RATE_LIMIT_EXCEEDED:
-          "Zu viele Anfragen. Bitte warten Sie {seconds} Sekunden, bevor Sie es erneut versuchen.",
-        DUPLICATED_URL: "Diese URL wird bereits genutzt. Bitte wähle eine andere Domain.",
-        "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Dieses Feld darf nicht leer sein",
+        FRAMEWORK__MISSING_PRIVILEGE_ERROR: "缺少权限",
+        FRAMEWORK__DELETE_RESTRICTED: "删除失败",
+        INVALID_MEDIA_URL: "请输入有效的 URL 以上传文件。",
+        CONTENT__MISSING_RULE_TYPE_EXCEPTION: "你必须为该规则选择一个类型。",
+        CONTENT__INVALID_CATEGORY_TYPE_AS_ENTRY_POINT: "当该类别被设置为入口点时，不能选择此类型。",
+        SHOPWARE_INVALID_IP: "请输入有效的 IP 地址。",
+        INVALID_URL: "请输入有效的 URL。",
+        INVALID_MAIL: "请输入有效的电子邮件地址。",
+        FRAMEWORK__RATE_LIMIT_EXCEEDED: "请求过多。请等待 {seconds} 秒后重试。",
+        DUPLICATED_URL: "该 URL 已被使用。请选择其他域名。",
+        "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "该字段不能为空",
       },
     },
   },

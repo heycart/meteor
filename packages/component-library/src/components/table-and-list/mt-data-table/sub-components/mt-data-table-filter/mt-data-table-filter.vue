@@ -73,9 +73,9 @@ const { t } = useI18n({
       is: "is",
       removeButton: "Remove filter",
     },
-    de: {
-      is: "ist",
-      removeButton: "Filter entfernen",
+    zh: {
+      is: "是",
+      removeButton: "移除过滤",
     },
   },
 });

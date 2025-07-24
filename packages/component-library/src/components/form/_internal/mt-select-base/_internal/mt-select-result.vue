@@ -166,8 +166,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-$mt-select-result-active-color-background: lighten($color-shopware-brand-500, 40%);
-$mt-select-result-active-color-text: $color-shopware-brand-500;
+$mt-select-result-active-color-background: lighten($color-heycart-brand-500, 40%);
+$mt-select-result-active-color-text: $color-heycart-brand-500;
 $mt-select-result-color-border: $color-gray-300;
 $mt-select-result-color-icon: darken($color-gray-100, 20%);
 $mt-select-result-transition-item-icon: all ease-in-out 0.15s;

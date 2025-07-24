@@ -369,8 +369,8 @@ export default defineComponent({
         en: {
           messageNoResults: 'No results found for "{term}".',
         },
-        de: {
-          messageNoResults: 'Es wurden keine Ergebnisse für "{term}" gefunden.',
+        zh: {
+          messageNoResults: '未找到与 "{term}" 匹配的结果。'
         },
       },
     });

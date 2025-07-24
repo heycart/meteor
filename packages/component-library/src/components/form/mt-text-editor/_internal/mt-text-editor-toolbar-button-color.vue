@@ -26,9 +26,9 @@ useI18n({
         label: "Text Color",
       },
     },
-    de: {
+    zh: {
       "mt-text-editor-toolbar-button-color": {
-        label: "Textfarbe",
+        label: "文本颜色",
       },
     },
   },

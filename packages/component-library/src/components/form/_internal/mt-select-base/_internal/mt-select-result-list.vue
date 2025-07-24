@@ -79,8 +79,8 @@ export default defineComponent({
         en: {
           messageNoResults: "No results found.",
         },
-        de: {
-          messageNoResults: "Es wurden keine Ergebnisse gefunden.",
+        zh: {
+          messageNoResults: "未找到任何结果。"
         },
       },
     });

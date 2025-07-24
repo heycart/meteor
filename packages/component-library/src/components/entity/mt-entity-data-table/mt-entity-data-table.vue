@@ -172,19 +172,19 @@ const { t } = useI18n({
         },
       },
     },
-    de: {
+    zh: {
       booleanFilter: {
-        true: "Aktiv",
-        false: "Inaktiv",
+        true: "启用",
+        false: "停用"
       },
       entity: {
         delete: {
-          title: "Element löschen",
-          description: "Soll dieses Element wirklich gelöscht werden?",
-          cancel: "Abbrechen",
-          delete: "Löschen",
-        },
-      },
+          title: "删除项目",
+          description: "你确定要删除这个项目吗？",
+          cancel: "取消",
+          delete: "删除"
+        }
+      }
     },
   },
 });

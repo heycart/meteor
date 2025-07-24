@@ -40,8 +40,8 @@ import { useI18n } from "vue-i18n";
 
 const { t } = useI18n({
   messages: {
-    de: {
-      close: "Schließen",
+    zh: {
+      close: "关闭",
     },
     en: {
       close: "Close",
