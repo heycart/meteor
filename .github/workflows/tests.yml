@@ -23,11 +23,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
-        if: ${{ github.event.pull_request.head.repo.full_name == 'shopware/meteor' }}
+        if: ${{ github.event.pull_request.head.repo.full_name == 'heycart/meteor' }}
 
       - name: Checkout
         uses: actions/checkout@v4
-        if: ${{ github.event.pull_request.head.repo.full_name != 'shopware/meteor' }}
+        if: ${{ github.event.pull_request.head.repo.full_name != 'heycart/meteor' }}
 
       - uses: pnpm/action-setup@v3
         with:
@@ -170,7 +170,7 @@ jobs:
     steps:
       - name: Generate versions
         id: versions
-        uses: shopware/github-actions/versions@main
+        uses: heycart/github-actions/versions@main
 
   # ats:
   #   name: Acceptance tests
@@ -188,20 +188,20 @@ jobs:
   #   strategy:
   #     fail-fast: false
   #     matrix:
-  #       shopware-version:
+  #       heycart-version:
   #         # TODO: add again with next major, does not work right now because 6.5 does not support vue3
   #         # - ${{ needs.tested-versions.outputs.lts-latest-version }}
   #         - ${{ needs.tested-versions.outputs.first-version }}
   #         - trunk
   #   steps:
-  #     - name: Setup shopware
-  #       uses: shopware/setup-shopware@main
+  #     - name: Setup heycart
+  #       uses: heycart/setup-heycart@main
   #       with:
-  #         path: shopware/
+  #         path: heycart/
   #         install: "true"
   #         install-admin: "true"
   #         install-storefront: "true"
-  #         shopware-version: "${{ matrix.shopware-version }}"
+  #         heycart-version: "${{ matrix.heycart-version }}"
   #         env: dev
 
   #     - name: Checkout
@@ -210,11 +210,11 @@ jobs:
   #         path: meteor/
 
   #     - name: Symlink plugin
-  #       working-directory: shopware/custom/plugins/
+  #       working-directory: heycart/custom/plugins/
   #       run: ln -s ../../../meteor/examples/admin-sdk-plugin TestPlugin
 
   #     - name: Activate TestPlugin
-  #       working-directory: shopware/
+  #       working-directory: heycart/
   #       run: |
   #         bin/console plugin:refresh
   #         bin/console plugin:install --activate TestPlugin
@@ -240,13 +240,13 @@ jobs:
   #       run: npx turbo run build
 
   #     - name: Build assets
-  #       working-directory: shopware/
+  #       working-directory: heycart/
   #       run: |
   #         composer run build:js
   #         bin/console assets:install
 
   #     - name: Start webserver
-  #       working-directory: shopware/
+  #       working-directory: heycart/
   #       run: symfony server:start --allow-http --no-tls --port=8000 -d
 
   #     - name: Install playwright
