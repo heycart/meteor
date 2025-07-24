@@ -170,9 +170,9 @@ const { t } = useI18n({
           "unordered-list": "插入无序列表",
           "numbered-list": "插入有序列表",
           undo: "撤销",
-          redo: "重做"
-        }
-      }
+          redo: "重做",
+        },
+      },
     },
   },
 });

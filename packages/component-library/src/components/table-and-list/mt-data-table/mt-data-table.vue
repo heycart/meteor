@@ -1030,37 +1030,36 @@ export default defineComponent({
         zh: {
           itemsPerPage: "每页条数",
           filter: {
-            numberOfResults:
-              "未找到条目 | 找到 1 条 | 找到 {n} 条",
+            numberOfResults: "未找到条目 | 找到 1 条 | 找到 {n} 条",
             addFilter: "添加筛选器",
-            fetchingFilteredResults: "正在加载筛选结果..."
+            fetchingFilteredResults: "正在加载筛选结果...",
           },
           columnSettings: {
             sortAscending: "升序排序",
             sortDescending: "降序排序",
-            hideColumn: "隐藏列"
+            hideColumn: "隐藏列",
           },
           addColumnIndicator: {
             popoverTitle: "添加列内容",
-            tooltipMessage: "添加列"
+            tooltipMessage: "添加列",
           },
           contextButtons: {
             edit: "编辑",
-            delete: "删除"
+            delete: "删除",
           },
           emptyState: {
             headline: "添加数据",
-            description: "当前还没有任何数据。"
+            description: "当前还没有任何数据。",
           },
           bulkEdit: {
             itemsSelected: "选中 1 条 | 选中 {n} 条",
             edit: "编辑",
             delete: "删除",
-            more: "更多..."
+            more: "更多...",
           },
           reload: {
-            tooltip: "重新加载"
-          }
+            tooltip: "重新加载",
+          },
         },
       },
     });

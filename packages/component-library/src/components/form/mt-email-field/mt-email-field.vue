@@ -177,7 +177,7 @@ const { t } = useI18n({
     zh: {
       copyTooltip: "复制到剪贴板",
       copyButtonDescription: "复制到剪贴板",
-      copyButtonDescriptionValueCopied: "已复制到剪贴板"
+      copyButtonDescriptionValueCopied: "已复制到剪贴板",
     },
     en: {
       copyTooltip: "Copy to clipboard",

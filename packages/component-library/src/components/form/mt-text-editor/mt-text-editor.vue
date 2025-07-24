@@ -180,12 +180,12 @@ const { t } = useI18n({
     zh: {
       "mt-text-editor": {
         buttons: {
-          "toggle-code": "切换代码视图"
+          "toggle-code": "切换代码视图",
         },
         footer: {
-          characters: "{characters} 个字符"
-        }
-      }
+          characters: "{characters} 个字符",
+        },
+      },
     },
   },
 });

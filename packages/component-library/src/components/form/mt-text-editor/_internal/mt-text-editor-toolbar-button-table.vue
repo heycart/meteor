@@ -95,8 +95,8 @@ const { t } = useI18n({
         insertColumnBefore: "在前面插入列",
         insertColumnAfter: "在后面插入列",
         deleteColumn: "删除列",
-        removeTable: "移除表格"
-      }
+        removeTable: "移除表格",
+      },
     },
   },
 });

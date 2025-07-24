@@ -1,4 +1,4 @@
-# @shopware-ag/meteor-prettier-config
+# @heycart-ag/meteor-prettier-config
 
 A shared prettier config for shopware projects.
 
@@ -7,13 +7,13 @@ A shared prettier config for shopware projects.
 With npm:
 
 ```bash
-npm i -D @shopware-ag/meteor-prettier-config
+npm i -D @heycart-ag/meteor-prettier-config
 ```
 
 With pnpm:
 
 ```bash
-pnpm i -D @shopware-ag/meteor-prettier-config
+pnpm i -D @heycart-ag/meteor-prettier-config
 ```
 
 # Usage
@@ -29,14 +29,14 @@ There are two ways to use this new config:
     "prettier": "^3.0.0",
   },
   // ↓ This is the important part ↓
-  "prettier": "@shopware-ag/meteor-prettier-config",
+  "prettier": "@heycart-ag/meteor-prettier-config",
 }
 ```
 
 2. Or you can use a `.prettierrc.js` file:
 
 ```js
-import meteorPrettierConfig from "@shopware-ag/meteor-prettier-config";
+import meteorPrettierConfig from "@heycart-ag/meteor-prettier-config";
 
 export default meteorPrettierConfig;
 ```
@@ -52,7 +52,7 @@ that setting like so:
 
 ```js
 // filename: .prettierrc.js
-import meteorPrettierConfig from "@shopware-ag/meteor-prettier-config";
+import meteorPrettierConfig from "@heycart-ag/meteor-prettier-config";
 
 export default {
   ...meteorPrettierConfig,

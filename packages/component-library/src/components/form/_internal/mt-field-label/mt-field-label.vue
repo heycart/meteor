@@ -46,7 +46,7 @@ const { t } = useI18n({
     },
     zh: {
       linkInheritance: "链接继承关系",
-      unlinkInheritance: "取消继承关系"
+      unlinkInheritance: "取消继承关系",
     },
   },
 });

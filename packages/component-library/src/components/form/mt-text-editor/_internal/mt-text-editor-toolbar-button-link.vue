@@ -90,8 +90,8 @@ const { t } = useI18n({
         applyLink: "应用链接",
         openInNewTab: "在新标签页打开",
         linkUrl: "链接 URL",
-        label: "链接"
-      }
+        label: "链接",
+      },
     },
   },
 });

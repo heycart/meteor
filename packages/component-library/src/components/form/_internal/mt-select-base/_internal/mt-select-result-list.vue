@@ -80,7 +80,7 @@ export default defineComponent({
           messageNoResults: "No results found.",
         },
         zh: {
-          messageNoResults: "未找到任何结果。"
+          messageNoResults: "未找到任何结果。",
         },
       },
     });

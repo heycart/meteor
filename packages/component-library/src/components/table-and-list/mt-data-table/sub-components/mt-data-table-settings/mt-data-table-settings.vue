@@ -184,8 +184,8 @@ export default defineComponent({
               labelShown: "在表格中显示",
               actionLabelShown: "全部隐藏",
               labelHidden: "在表格中隐藏",
-              actionLabelHidden: "全部显示"
-            }
+              actionLabelHidden: "全部显示",
+            },
           },
           showNumberedColumn: "显示编号列",
           showStripedRows: "显示条纹行",
@@ -193,7 +193,7 @@ export default defineComponent({
           frameOutlines: "突出显示轮廓",
           frameOutlinesMetaCopy: "鼠标悬停时高亮显示行列轮廓",
           tooltip: "表格设置",
-          "aria-toggle-table-settings": "切换表格设置"
+          "aria-toggle-table-settings": "切换表格设置",
         },
       },
     });

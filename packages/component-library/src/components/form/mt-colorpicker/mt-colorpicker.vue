@@ -262,8 +262,8 @@ export default defineComponent({
         },
         zh: {
           "mt-colorpicker": {
-            apply: "应用"
-          }
+            apply: "应用",
+          },
         },
       },
     });

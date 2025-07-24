@@ -99,7 +99,7 @@ const { t } = useI18n({
       firstPage: "第一页",
       previousPage: "上一页",
       nextPage: "下一页",
-      lastPage: "最后一页"
+      lastPage: "最后一页",
     },
   },
 });

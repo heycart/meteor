@@ -370,7 +370,7 @@ export default defineComponent({
           messageNoResults: 'No results found for "{term}".',
         },
         zh: {
-          messageNoResults: '未找到与 "{term}" 匹配的结果。'
+          messageNoResults: '未找到与 "{term}" 匹配的结果。',
         },
       },
     });

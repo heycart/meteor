@@ -129,7 +129,7 @@ const { t } = useI18n({
     },
     zh: {
       disableInheritance: "禁用继承",
-      enableInheritance: "启用继承"
+      enableInheritance: "启用继承",
     },
   },
 });

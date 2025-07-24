@@ -49,7 +49,7 @@ const { t } = useI18n({
     zh: {
       tooltipRemoveInheritance: "移除继承",
       tooltipRestoreInheritance: "恢复继承",
-    }
+    },
   },
 });
 

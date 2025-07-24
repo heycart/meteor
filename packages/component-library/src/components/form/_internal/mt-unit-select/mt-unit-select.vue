@@ -66,9 +66,9 @@ const { t } = useI18n({
         g: "克",
         kg: "千克",
         oz: "盎司",
-        lb: "磅"
+        lb: "磅",
       },
-      "select-unit": "选择单位"
+      "select-unit": "选择单位",
     },
     en: {
       units: {
