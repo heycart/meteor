@@ -1,6 +1,6 @@
 {
   "name": "@heycart-ag/meteor-tokens",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Design Tokens for the Meteor Design System used at heycart",
   "repository": {
     "type": "git",

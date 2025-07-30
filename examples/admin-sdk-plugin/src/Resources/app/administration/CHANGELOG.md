@@ -1,5 +1,29 @@
 # administration
 
+## 1.0.27
+
+### Patch Changes
+
+- Updated dependencies [9b651ae]
+- Updated dependencies [9b651ae]
+- Updated dependencies [9b651ae]
+- Updated dependencies [9b651ae]
+- Updated dependencies [9b651ae]
+- Updated dependencies [9b651ae]
+- Updated dependencies [9b651ae]
+- Updated dependencies [9b651ae]
+- Updated dependencies [9b651ae]
+- Updated dependencies [9b651ae]
+- Updated dependencies [9b651ae]
+- Updated dependencies [9b651ae]
+- Updated dependencies [96d9044]
+- Updated dependencies [9b651ae]
+- Updated dependencies [9b651ae]
+- Updated dependencies [9b651ae]
+- Updated dependencies [9b651ae]
+- Updated dependencies [9b651ae]
+  - @heycart-ag/meteor-component-library@4.15.0
+
 ## 1.0.26
 
 ### Patch Changes
