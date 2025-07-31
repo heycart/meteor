@@ -417,4 +417,3 @@ const { t } = useI18n({
   margin-top: 0.1875rem;
 }
 </style>
-

@@ -2008,7 +2008,7 @@ $tableCellPaddingRight: 16px;
 $tableCellPaddingBottom: 14px;
 $tableCellPaddingLeft: 16px;
 $tableCellPadding: $tableCellPaddingTop $tableCellPaddingRight $tableCellPaddingBottom
-$tableCellPaddingLeft;
+  $tableCellPaddingLeft;
 
 .mt-data-table {
   display: flex;
@@ -2470,12 +2470,12 @@ $tableCellPaddingLeft;
   .mt-data-table__table-head-dropzone-before {
     left: 0;
     box-shadow: inset $dropzone-highlight-width 0px $dropzone-highlight-width
-    $dropzone-highlight-negative-width $color-heycart-brand-900;
+      $dropzone-highlight-negative-width $color-heycart-brand-900;
   }
   .mt-data-table__table-head-dropzone-after {
     right: 0;
     box-shadow: inset $dropzone-highlight-negative-width 0px $dropzone-highlight-width
-    $dropzone-highlight-negative-width $color-heycart-brand-900;
+      $dropzone-highlight-negative-width $color-heycart-brand-900;
   }
 
   /**

@@ -114,7 +114,6 @@ const showInitials = computed(() => {
 });
 
 const color = computed(() => {
-
   const nameLength = props.name ? props.name.length : 0;
 
   return colors[nameLength % colors.length];

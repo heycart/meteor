@@ -452,7 +452,6 @@ watch(
   display: flex;
 }
 
-
 .mt-text-editor-toolbar__buttons-left,
 .mt-text-editor-toolbar__buttons-right {
   display: flex;

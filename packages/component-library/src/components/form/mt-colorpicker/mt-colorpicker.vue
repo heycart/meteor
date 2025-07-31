@@ -1562,8 +1562,8 @@ export default defineComponent({
   border: 1px solid var(--color-border-secondary-default);
   border-radius: var(--border-radius-xs);
   background-image: linear-gradient(180deg, #fff, rgba(255, 255, 255, 0) 50%),
-  linear-gradient(0deg, #000, rgba(0, 0, 0, 0) 50%),
-  linear-gradient(90deg, #808080, rgba(128, 128, 128, 0) 100%);
+    linear-gradient(0deg, #000, rgba(0, 0, 0, 0) 50%),
+    linear-gradient(90deg, #808080, rgba(128, 128, 128, 0) 100%);
 }
 
 .mt-colorpicker__colorpicker-selector {

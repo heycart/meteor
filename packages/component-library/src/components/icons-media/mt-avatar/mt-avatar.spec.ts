@@ -13,7 +13,7 @@ describe("mt-avatar", () => {
   });
 
   it("shows only initials", () => {
-    render(MtAvatar, { props: { name: "John"} });
+    render(MtAvatar, { props: { name: "John" } });
 
     const result = screen.getByTestId("mt-avatar-initials");
 
