@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.15.1
+
+### Patch Changes
+
+- b75d308: Update color tokens
+
 ## 4.15.0
 
 ### Minor Changes
