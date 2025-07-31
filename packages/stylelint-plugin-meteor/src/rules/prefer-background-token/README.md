@@ -7,13 +7,13 @@ This rules only allows using semantic tokens for background colors.
 ### Incorrect
 
 ```css
-a {
+div {
   background: red;
 }
 ```
 
 ```css
-a {
+div {
   background-color: #ff9d49;
 }
 ```
@@ -21,12 +21,18 @@ a {
 ### Correct
 
 ```css
-a {
-  color: var(--color-elevation-surface-overlay);
+div {
+  background: var(--color-background-primary-default);
+}
+```
+
+```css
+div {
+  background-color: var(--color-elevation-surface-default);
 }
 ```
 
 ## Resources
 
-- [Rule source](https://github.com/shopware/meteor/blob/main/packages/stylelint-plugin-meteor/src/rules/prefer-background-token/index.ts)
-- [Test source](https://github.com/shopware/meteor/blob/main/packages/stylelint-plugin-meteor/src/rules/prefer-background-token/prefer-background-token.test.ts)
+- [Rule source](https://github.com/heycart/meteor/blob/main/packages/stylelint-plugin-meteor/src/rules/prefer-background-token/index.ts)
+- [Test source](https://github.com/heycart/meteor/blob/main/packages/stylelint-plugin-meteor/src/rules/prefer-background-token/prefer-background-token.test.ts)
