@@ -13,8 +13,6 @@
       v-model="computedValue"
       class="date-picker"
       position="left"
-      @open="isDatepickerOpen = true"
-      @close="isDatepickerOpen = false"
       :placeholder="placeholder"
       :disabled="disabled"
       :required="required"
@@ -24,13 +22,15 @@
       :teleport="true"
       :show-cancel="true"
       :clearable="true"
+      @open="isDatepickerOpen = true"
       :auto-apply="true"
+      @close="isDatepickerOpen = false"
       :range="range"
       :format="formatDate"
       :is-24="is24"
       :type="dateType"
       :enable-time-picker="dateType !== 'date'"
-      :exactMatch="dateType === 'date'"
+      :exact-match="dateType === 'date'"
       time-picker-inline
       :time-picker="dateType === 'time'"
       :no-hours-overlay="dateType === 'time'"
@@ -281,6 +281,11 @@ export default defineComponent({
     },
   },
 
+  mounted() {
+    this.isTimeHintVisible = this.dateType !== "date";
+    this.updateOpacitySettings();
+  },
+
   methods: {
     updateOpacitySettings() {
       document.documentElement.style.setProperty(
@@ -343,11 +348,6 @@ export default defineComponent({
       const minutes = String(time.minutes).padStart(2, "0");
       return `${hours}:${minutes}`;
     },
-  },
-
-  mounted() {
-    this.isTimeHintVisible = this.dateType !== "date";
-    this.updateOpacitySettings();
   },
 });
 </script>

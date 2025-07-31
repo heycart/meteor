@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-text-editor" :class="componentClasses" v-if="editor">
+  <div v-if="editor" class="mt-text-editor" :class="componentClasses">
     <label v-if="label">
       {{ label }}
     </label>
@@ -7,19 +7,19 @@
     <div class="mt-text-editor__box">
       <component
         :is="toolbarWrapperComponent"
+        :key="isInlineEdit"
         :editor="editor"
-        :tippyOptions="{
+        :tippy-options="{
           maxWidth: 'none',
           zIndex: 1000,
         }"
-        :key="isInlineEdit"
       >
         <mt-text-editor-toolbar
           :editor="editor"
           :custom-buttons="mergedCustomButtons"
           :disabled="globalToolbarButtonDisabled"
-          @updateContextualButtons="updateContextualButtons"
-          :excludedButtons="excludedButtons"
+          :excluded-buttons="excludedButtons"
+          @update-contextual-buttons="updateContextualButtons"
         >
           <!-- Special buttons -->
           <template #button_text-color="{ editor, disabled, button }">
@@ -47,7 +47,7 @@
           </template>
 
           <!-- Dynamically pass all slots -->
-          <template #[name]="bindings" v-for="(_, name) in slots">
+          <template v-for="(_, name) in slots" #[name]="bindings">
             <slot :name="name" v-bind="bindings"> </slot>
           </template>
         </mt-text-editor-toolbar>
@@ -57,12 +57,12 @@
       <code-mirror
         v-else
         :lang="lang"
-        :modelValue="modelValue"
-        @update:modelValue="emit('update:modelValue', $event)"
+        :model-value="modelValue"
         class="mt-text-editor__code-editor"
         wrap
         basic
         :disabled="disabled"
+        @update:model-value="emit('update:modelValue', $event)"
       />
 
       <div class="mt-text-editor__footer">
@@ -79,8 +79,8 @@
                   <mt-text-editor-toolbar-button
                     :button="button"
                     :editor="editor"
-                    @click="toggleFloatingUi"
                     :disabled="globalToolbarButtonDisabled"
+                    @click="toggleFloatingUi"
                   />
                 </template>
 
@@ -91,7 +91,7 @@
                     :label="child.label"
                     :icon="child.icon"
                     :type="child.isActive && child.isActive(editor) ? 'active' : 'default'"
-                    :onLabelClick="
+                    :on-label-click="
                       () => {
                         button.action?.(editor!);
                         toggleFloatingUi();
