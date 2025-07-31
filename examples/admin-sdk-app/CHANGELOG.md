@@ -1,5 +1,12 @@
 # meteor-admin-sdk-app
 
+## 1.0.50
+
+### Patch Changes
+
+- Updated dependencies [b75d308]
+  - @heycart-ag/meteor-component-library@4.15.1
+
 ## 1.0.49
 
 ### Patch Changes
