@@ -35,8 +35,7 @@ const colors = ["orange", "pink", "yellow", "purple", "red", "blue", "emerald"] 
 
 const props = defineProps<{
   size?: string;
-  firstName?: string;
-  lastName?: string;
+  name?: string;
   imageUrl?: string;
   placeholder?: boolean;
   sourceContext?: { avatarMedia: { url: string; thumbnails: { width: number; url: string }[] } };
@@ -54,10 +53,7 @@ const avatarSize = computed(() => ({
 }));
 
 const avatarInitials = computed(() => {
-  const firstNameLetter = props.firstName ? props.firstName[0] : "";
-  const lastNameLetter = props.lastName ? props.lastName[0] : "";
-
-  return firstNameLetter + lastNameLetter;
+  return props.name ? props.name[0] : "";
 });
 
 const avatarInitialsSize = computed(() => ({
@@ -118,10 +114,8 @@ const showInitials = computed(() => {
 });
 
 const color = computed(() => {
-  const firstNameLength = props.firstName ? props.firstName.length : 0;
-  const lastNameLength = props.lastName ? props.lastName.length : 0;
 
-  const nameLength = firstNameLength + lastNameLength;
+  const nameLength = props.name ? props.name.length : 0;
 
   return colors[nameLength % colors.length];
 });
