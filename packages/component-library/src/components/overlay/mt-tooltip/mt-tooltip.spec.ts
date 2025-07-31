@@ -926,12 +926,12 @@ describe("mt-tooltip", () => {
     // ARRANGE
     render({
       template: `
-<mt-tooltip content="Tooltip">
-  <template #default="params">
-    <mt-button v-bind="params" disabled>Focus to open tooltip</mt-button>
-  </template>
-</mt-tooltip>
-`,
+        <mt-tooltip content="Tooltip">
+          <template #default="params">
+            <mt-button v-bind="params" disabled>Focus to open tooltip</mt-button>
+          </template>
+        </mt-tooltip>
+      `,
       components: {
         MtTooltip,
         MtButton,
@@ -955,11 +955,11 @@ describe("mt-tooltip", () => {
 
     render({
       template: `
-<mt-tooltip content="Tooltip">
-  <template #default="params">
-    <mt-button v-bind="params" @click="handler" disabled>Click to open tooltip</mt-button>
-  </template>
-</mt-tooltip>`,
+        <mt-tooltip content="Tooltip">
+          <template #default="params">
+            <mt-button v-bind="params" @click="handler" disabled>Click to open tooltip</mt-button>
+          </template>
+        </mt-tooltip>`,
       components: {
         MtTooltip,
         MtButton,
@@ -986,11 +986,11 @@ describe("mt-tooltip", () => {
 
       render({
         template: `
-<mt-tooltip content="Tooltip">
-  <template #default="params">
-    <mt-button v-bind="params" @click="handler" disabled>Click to open tooltip</mt-button>
-  </template>
-</mt-tooltip>`,
+          <mt-tooltip content="Tooltip">
+            <template #default="params">
+              <mt-button v-bind="params" @click="handler" disabled>Click to open tooltip</mt-button>
+            </template>
+          </mt-tooltip>`,
         components: {
           MtTooltip,
           MtButton,
@@ -1014,11 +1014,11 @@ describe("mt-tooltip", () => {
     // ARRANGE
     render({
       template: `
-<mt-tooltip content="Tooltip" delayDurationInMs="100" hideDelayDurationInMs="50">
-  <template #default="params">
-    <mt-button v-bind="params" disabled>Hover to open tooltip</mt-button>
-  </template>
-</mt-tooltip>`,
+        <mt-tooltip content="Tooltip" delayDurationInMs="100" hideDelayDurationInMs="50">
+          <template #default="params">
+            <mt-button v-bind="params" disabled>Hover to open tooltip</mt-button>
+          </template>
+        </mt-tooltip>`,
       components: {
         MtTooltip,
         MtButton,
@@ -1043,12 +1043,12 @@ describe("mt-tooltip", () => {
     // ARRANGE
     render({
       template: `
-<mt-tooltip content="Tooltip">
-  <template #default="params">
-    <mt-button v-bind="params" disabled link="https://www.shopware.com">Focus to open tooltip</mt-button>
-  </template>
-</mt-tooltip>
-`,
+        <mt-tooltip content="Tooltip">
+          <template #default="params">
+            <mt-button v-bind="params" disabled link="https://www.shopware.com">Focus to open tooltip</mt-button>
+          </template>
+        </mt-tooltip>
+      `,
       components: {
         MtTooltip,
         MtButton,
@@ -1070,12 +1070,12 @@ describe("mt-tooltip", () => {
     // ARRANGE
     render({
       template: `
-<mt-tooltip content="Tooltip">
-  <template #default="params">
-    <mt-button v-bind="params" isLoading link="https://www.shopware.com">Focus to open tooltip</mt-button>
-  </template>
-</mt-tooltip>
-`,
+        <mt-tooltip content="Tooltip">
+          <template #default="params">
+            <mt-button v-bind="params" isLoading link="https://www.shopware.com">Focus to open tooltip</mt-button>
+          </template>
+        </mt-tooltip>
+      `,
       components: {
         MtTooltip,
         MtButton,
@@ -1097,11 +1097,11 @@ describe("mt-tooltip", () => {
     // ARRANGE
     render({
       template: `
-<mt-tooltip content="Tooltip" delayDurationInMs="100" hideDelayDurationInMs="50">
-  <template #default="params">
-    <mt-button v-bind="params" link="https://www.shopware.com" disabled>Hover to open tooltip</mt-button>
-  </template>
-</mt-tooltip>`,
+        <mt-tooltip content="Tooltip" delayDurationInMs="100" hideDelayDurationInMs="50">
+          <template #default="params">
+            <mt-button v-bind="params" link="https://www.shopware.com" disabled>Hover to open tooltip</mt-button>
+          </template>
+        </mt-tooltip>`,
       components: {
         MtTooltip,
         MtButton,

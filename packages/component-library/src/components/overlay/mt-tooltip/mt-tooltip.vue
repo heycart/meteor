@@ -30,20 +30,20 @@
       >
         <!-- Needs to be v-show, otherwise we have a jumping entry when tooltip is visible for the first time -->
         <div
-          :id="`mt-tooltip--${id}__tooltip`"
-          ref="tooltipRef"
           role="tooltip"
+          :id="`mt-tooltip--${id}__tooltip`"
           class="tooltip"
+          ref="tooltipRef"
           :style="{ ...floatingStyles, maxWidth: `${props.maxWidth}px` }"
           tabindex="-1"
           @mouseover="setState({ isHoveringTooltip: true })"
           @mouseleave="onMouseLeaveTooltip"
         >
-          <span class="mt-tooltip__content" data-theme="dark" v-html="sanitizedContent" />
+          <span class="mt-tooltip__content" v-html="sanitizedContent" data-theme="dark" />
 
           <svg
-            ref="arrowRef"
             aria-hidden="true"
+            ref="arrowRef"
             width="8"
             height="4"
             viewBox="0 0 8 4"
