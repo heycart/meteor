@@ -1,5 +1,12 @@
 # Changelog
 
+## 5.0.0
+
+### Major Changes
+
+- 995c9bd: - Add error handling for mt-datepicker component
+  - Add minDate handling for mt-datepicker component
+
 ## 4.15.1
 
 ### Patch Changes
