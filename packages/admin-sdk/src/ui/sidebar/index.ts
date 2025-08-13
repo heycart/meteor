@@ -1,4 +1,4 @@
-import {createSender} from '../../channel';
+import { createSender } from '../../channel';
 
 export const add = createSender('uiSidebarAdd');
 export const close = createSender('uiSidebarClose');
