@@ -1,5 +1,12 @@
 # @heycart-ag/stylelint-plugin-meteor
 
+## 4.0.0
+
+### Patch Changes
+
+- Updated dependencies [eed6247]
+  - @heycart-ag/meteor-tokens@1.3.0
+
 ## 3.0.0
 
 ### Patch Changes

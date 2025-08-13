@@ -1,5 +1,11 @@
 # @heycart-ag/meteor-tokens
 
+## 1.3.0
+
+### Minor Changes
+
+- eed6247: Add description to all Design Tokens
+
 ## 1.2.0
 
 ### Minor Changes
