@@ -1,5 +1,5 @@
 ---
-"@heycart-ag/meteor-component-library": major
+"@heycart-ag/meteor-component-library": minor
 ---
 
 - Add error handling for mt-datepicker component
