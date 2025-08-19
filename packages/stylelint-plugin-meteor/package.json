@@ -26,7 +26,7 @@
     "prettier": "^3.5.2",
     "stylelint-test-rule-node": "^0.3.0",
     "tshy": "^3.0.2",
-    "tsx": "^4.7.0",
+    "tsx": "^4.20.4",
     "@heycart-ag/meteor-prettier-config": "workspace:*"
   },
   "type": "module",
